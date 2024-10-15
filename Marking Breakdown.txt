@@ -1,0 +1,43 @@
+# Marking Breakdown
+
+## Summarizing Statement
+
+- `index.html` --> About Me
+- written with statement and a list of my knowledge/experience
+
+## Link to my resume
+
+- `index.html` --> My Resume
+
+## My contacts
+
+- All HTML files --> footer
+
+## Skills
+
+- `mySkills.html`
+
+## Projects
+
+- `myProjects.html`
+
+## Education
+
+- `myExperiences.html`
+
+## Extra effort
+
+- Function to filter bootstrap cards
+- Collapsed contents, and toggle show/hide features
+- Custom bootstrap cards under `mySkills.html`
+- "hero" banner with auto-scaling text
+- Text shadow on navbar
+- Lots of images
+
+## Professionally styled
+
+- Every email, github, linkedin links are created as SVG
+- Every experience under `mySkills.html` are paired with its corresponding SVG
+- Designed for both desktop and mobile view
+- Disabled navbar link when user is on the same page
+- Highlight link on mouse hover

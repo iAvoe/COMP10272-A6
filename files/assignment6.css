@@ -1,0 +1,191 @@
+/* 
+    These following attributes allows display size comprehension
+    @media only screen and (min-width: 701px) {}
+    @media only screen and (max-width: 700px) {}
+
+     _______________________
+    |  margin               |
+    |  ___________________  |
+    | |  border           | |
+    | |  _______________  | |
+    | | |  padding      | | |
+    | | |  ___________  | | |
+    | | | |  content  | | | |
+    | | | |___________| | | |
+    | | | |           | | | |
+    | | | |<- width ->| | | |
+    | | |_______________| | |
+    | |___________________| |
+    |_______________________|
+
+    Review animation!
+    background: -moz-linear-gradient( center bottom, #def291 9%, #f1a8a0 55%, #4671a0 78% );
+    background: -o-linear-gradient( center bottom, rgb(59,63,65) 9%, rgb(72,76,77) 55%, rgb(75,77,77) 78% );
+ 
+    "max-width", plus "margin:auto" used for a centered, flexible container
+    "width" as a percentage and "float:left" so that tiles arrange themselves
+    "box-sizing:border-box" so that the width setting includes padding and border
+    "clear:both" is a trick to set the #container div height
+    ":hover" pseudoclass
+    look at the ul, li, and "li a" styles for the navigation links
+ 
+    Jia-Cheng Gong (JC) - 000758631, 2024
+ */
+
+/* High-level formatting for general inheriting */
+body {
+    font-family: verdana, arial, Helvetica, sans-serif;
+    margin: 0;
+}
+/* Fontsize */
+.btn { font-size: 1.35vw;}
+.text-larger { font-size: larger; }
+.text-smaller { font-size: smaller; }
+.text-xs { font-size: x-small; }
+
+/* Creating missing bootstrap css */
+.rounded-9 {
+    border-radius: 0.9rem;
+}
+.border-main { border: solid 2px var(--hex-light-gray) !important;  }
+
+/* New background color */
+.bg-cornsilk {
+    background-color: #fff3cd;
+}
+
+/* Low level formatting - transitions */
+#imgTrans {
+    animation: imageTransition 600ms;
+    animation-iteration-count: 1;
+}
+@keyframes imageTransition {
+    0% { opacity: 0;  }
+   50% { transform: rotateY(0deg) rotateX(0deg) scale(0.8); }
+   100% { opacity: 1; }
+}
+
+.section {
+    background-color: #fff3cd;
+    text-shadow: 4px 4px 4px #111; /* Shadow effect */
+}
+/* hero background image */
+.bgimage {
+    height: 80vw; /* Using width to control image size, to support mobile device */
+    width: auto;
+    position: relative;
+    margin: auto; /* Center the square container */
+    display: flex; /* Flexbox to center text */
+    background: url('./images/heroImage.jpg') no-repeat center center; /* Scaling up and down while centering image */
+    background-size: cover; /* Image must cover the container */
+}
+/* text css above hero image*/
+.hero_title {
+    padding-top: 1em;
+    font-size: 5vw;
+}
+.hero_desc {
+    font-size: 3vw;
+}
+.hero_text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* navbar styling */
+.navbar-brand {
+    text-shadow: 2px 2px 4px #111; /* Shadow effect */
+
+}
+/* card organizing and styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Centers the cards horizontally */
+    margin: 20px; /* Adds spacing around the container */
+}
+.card {
+    min-width: 18rem;
+    margin: 0.5em;
+    flex: 1 1 calc(30% - 20px); /* Adjust the width of the cards */
+    max-width: calc(30% - 20px); /* Set a maximum width */
+    box-shadow: 0 2px 10px #111; /* Adds a subtle shadow */
+}
+/* Adjust card's size dynamically */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(45% - 20px); /* Adjusts card width on smaller screens */
+        max-width: calc(45% - 20px); 
+    }
+}
+/* Adjust card's size dynamically */
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%; /* Full width on very small screens */
+        max-width: 100%; 
+    }
+}
+/* Filter cards' and descriptions' display property */
+.show { display: block; }
+.hide { display: none; }
+
+/* Anchor hover effect, text color */
+a { 
+    color: var(--hex-light-green);
+    border-radius: 0.5em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+a:hover {
+    color: white;
+    background: #3C4042;
+    text-decoration: none;
+    transition: 300ms;
+}
+a:active {
+    border-radius: 1em;
+    transition: 25ms;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: var(--hex-light-gray);
+}
+
+/* Collapsible divs - Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.collapsible {
+    background-color: var(--hex-lighest-gray);
+    font-family: var(--font-style-main);
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 0.55rem 1.25rem;
+    text-align: left;
+    overflow-anchor: none;
+    border: none;
+}
+.coll-content {
+    display: none;
+    overflow: hidden;
+}
+.collapsible:hover {
+    color: white;
+    background:#3C4042;
+    text-decoration: none;
+    transition: 300ms;
+}
+.active {
+    text-decoration: none;
+    background-color: #dee2e6;
+    transition: 300ms;
+}
+.collapsible.active:after {
+    content: '\2796'; /* Unicode minus sign (-) */ 
+}
+.collapsible:after {
+    content: '\2795'; /* Unicode plus sign (+) */
+    float: right;
+    margin-left: auto;
+}
