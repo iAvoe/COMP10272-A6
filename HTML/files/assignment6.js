@@ -26,7 +26,9 @@ function toggleDescription(id) {
             addClass(element, 'show');
         }
     }
-    else { console.log(`Missing element with ID "${id}". This is normal as these elements are split among multiple htmls`); }
+    else {
+        console.log(`Missing element with ID "${id}". This is normal as these elements are split among multiple htmls`);
+    }
 }
 /** 
  * Show and hide cards (Credit: https://www.w3schools.com/howto/howto_js_filter_elements.asp)
@@ -105,5 +107,5 @@ for (let i = 0; i < collapseBtns.length; i++) {
 // Pre-run functions to toggle display properties and other presets
 showCards("all");
 // Call the function only for elements that might exist
-const descriptions = ['desc1', 'desc2', 'desc3', 'desc4'];
+const descriptions = ['desc1', 'desc2', 'desc3', 'desc4', 'desc5'];
 descriptions.forEach(id => toggleDescription(id));
